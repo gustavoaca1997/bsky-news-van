@@ -41,5 +41,3 @@ async function PostToBsky() {
 }
 
 export default PostToBsky;
-
-PostToBsky()
