@@ -7,6 +7,7 @@ export async function PostNews(myTimer: Timer, context: InvocationContext): Prom
 }
 
 app.timer('PostNews', {
-    schedule: '0 0 * * *',
+    // {second} {minute} {hour} {day} {month} {day-of-week}
+    schedule: '0 0 0 * * *',
     handler: PostNews
 });
