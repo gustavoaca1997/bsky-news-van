@@ -16,7 +16,7 @@ class NewsAPIClient {
         });
     }
 
-    public async getNews(query: string, from: string, sortBy: string, language: string, searchIn: string): Promise<AxiosResponse<any>> {
+    public async getNews(query: string, from: string, sortBy: string, language: string, searchIn: string, excludeDomains: string): Promise<AxiosResponse<any>> {
         console.log(`Requesting last 5 articles about ${query} from ${from} sorted by ${sortBy} in ${language} language with search in ${searchIn}.`);
         const response = await this.client.get('/everything', {
             params: {
@@ -26,6 +26,7 @@ class NewsAPIClient {
                 sortBy: sortBy,
                 language: language,
                 searchIn: searchIn,
+                excludeDomains: excludeDomains,
                 pageSize: 5,
             },
         });
@@ -46,7 +47,7 @@ class NewsAPIClient {
         // Set the time back to the date object
         dateObj.setTime(yesterdayTime);
 
-        return this.getNews('vancouver', `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate()}`, 'popularity', 'en', 'title,description')
+        return this.getNews('vancouver OR "British Columbia"', `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate()}`, 'popularity', 'en', 'title,description', "financialpost.com")
     }
 }
 
