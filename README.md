@@ -12,7 +12,7 @@ bsky-news-bot is a bot designed to fetch and post news updates to the Bluesky so
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/gustavoca/bsky-news-bot.git
+    git clone https://github.com/gustavoaca1997/bsky-news-van.git
     ```
 2. Navigate to the project directory:
     ```bash
